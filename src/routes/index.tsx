@@ -74,6 +74,9 @@ function Landing() {
           </Feature>
         </section>
       </main>
+      <footer className="border-t border-border/60 py-6 text-center text-xs text-muted-foreground">
+        Designed and developed by Nitheesha
+      </footer>
     </div>
   );
 }
