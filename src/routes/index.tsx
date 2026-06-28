@@ -23,9 +23,16 @@ export const Route = createFileRoute("/")({
 });
 
 function Landing() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data }) => {
+      if (data.session) navigate({ to: "/analyzer" });
+    });
+  }, [navigate]);
   return (
     <div className="min-h-screen">
       <Navbar />
+
       <main className="mx-auto max-w-6xl px-4 pb-24 pt-16 sm:pt-24">
         <section className="grid items-center gap-12 md:grid-cols-[1.1fr_1fr]">
           <div>
