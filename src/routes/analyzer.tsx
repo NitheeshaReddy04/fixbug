@@ -49,10 +49,10 @@ type HistoryItem = {
 
 function AnalyzerPage() {
   const { user, loading: authLoading } = useAuth();
-  const analyzeGuest = useStartServerFn(analyzeErrorGuest);
-  const analyzeAuthed = useStartServerFn(analyzeErrorAuthed);
-  const fetchHistory = useStartServerFn(listAnalyses);
-  const removeAnalysis = useStartServerFn(deleteAnalysis);
+  const analyzeGuest = useServerFn(analyzeErrorGuest);
+  const analyzeAuthed = useServerFn(analyzeErrorAuthed);
+  const fetchHistory = useServerFn(listAnalyses);
+  const removeAnalysis = useServerFn(deleteAnalysis);
 
   const [errorText, setErrorText] = useState("");
   const [language, setLanguage] = useState("Auto-detect");
