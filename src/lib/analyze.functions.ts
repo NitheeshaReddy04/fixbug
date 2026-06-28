@@ -102,7 +102,7 @@ export const analyzeErrorAuthed = createServerFn({ method: "POST" })
   .handler(async ({ data, context }) => {
     const result = await callAi(data.errorText, data.language);
 
-    const { error } = await context.supabase.from("analyses").insert({
+    const { data: inserted, error } = await context.supabase.from("analyses").insert({
       user_id: context.userId,
       error_text: data.errorText,
       language: data.language,
@@ -112,10 +112,10 @@ export const analyzeErrorAuthed = createServerFn({ method: "POST" })
       steps: result.steps,
       fix_example: result.fixExample,
       pro_tip: result.proTip,
-    });
+    }).select("id").single();
     if (error) console.error("Failed to save analysis:", error);
 
-    return result;
+    return { result, analysisId: inserted?.id ?? null };
   });
 
 export const listAnalyses = createServerFn({ method: "GET" })
@@ -123,7 +123,7 @@ export const listAnalyses = createServerFn({ method: "GET" })
   .handler(async ({ context }) => {
     const { data, error } = await context.supabase
       .from("analyses")
-      .select("id, error_text, detected_language, severity, cause, created_at")
+      .select("id, error_text, language, detected_language, severity, cause, steps, fix_example, pro_tip, created_at")
       .order("created_at", { ascending: false })
       .limit(20);
     if (error) throw new Error(error.message);
