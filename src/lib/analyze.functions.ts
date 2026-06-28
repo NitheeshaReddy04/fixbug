@@ -40,6 +40,7 @@ Before writing your final answer, internally work through these steps (do not ou
    b. Do the numbered steps logically lead to fixExample? Each step should be something the user can actually act on, not vague advice.
    c. If diagnosis involves inspecting state that gets overwritten after a restart/retry (e.g. a crashed and restarted container, a replaced pod, a re-run job), include the correct command to see the PRIOR state, not just the current one (e.g. "kubectl logs --previous", not just "kubectl logs").
    d. Is severity justified by the actual failure mode, not just guessed?
+   e. Does fixExample contain ONLY real, working code? If any comment describes logic that should exist (e.g. "// check connection health here", "// add retry logic", "// handle error", "# TODO: validate input") instead of actual code implementing it, this fails the self-check — rewrite the comment as real, working code that actually performs the described behavior. Comments are only allowed for brief clarifying notes about code that is already present.
 
 4. Only after the self-check passes, output the final JSON. Never output reasoning, markdown, or text outside the JSON object.
 
