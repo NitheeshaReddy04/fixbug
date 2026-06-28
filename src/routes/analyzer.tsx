@@ -70,7 +70,7 @@ function AnalyzerPage() {
       return;
     }
     fetchHistory({})
-      .then((rows) => setHistory(rows as HistoryItem[]))
+      .then((rows: unknown) => setHistory(rows as HistoryItem[]))
       .catch(() => {});
   }, [user, fetchHistory]);
 
@@ -89,7 +89,7 @@ function AnalyzerPage() {
       const res = user ? await analyzeAuthed(payload) : await analyzeGuest(payload);
       setResult(res);
       if (user) {
-        fetchHistory({}).then((rows) => setHistory(rows as HistoryItem[])).catch(() => {});
+        fetchHistory({}).then((rows: unknown) => setHistory(rows as HistoryItem[])).catch(() => {});
       }
     } catch (e) {
       console.error(e);
@@ -104,7 +104,7 @@ function AnalyzerPage() {
     try {
       await removeAnalysis({ data: { id } });
     } catch {
-      fetchHistory({}).then((rows) => setHistory(rows as HistoryItem[])).catch(() => {});
+      fetchHistory({}).then((rows: unknown) => setHistory(rows as HistoryItem[])).catch(() => {});
     }
   }
 
