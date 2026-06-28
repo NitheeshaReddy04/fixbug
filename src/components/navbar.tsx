@@ -16,8 +16,7 @@ export function Navbar() {
   }
 
   function goBack() {
-    if (window.history.length > 1) router.history.back();
-    else navigate({ to: "/" });
+    navigate({ to: "/" });
   }
 
   return (
