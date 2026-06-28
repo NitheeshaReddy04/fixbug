@@ -16,6 +16,7 @@ export function Navbar() {
   }
 
   function goBack() {
+    try { sessionStorage.setItem("fixbug:stay-home", "1"); } catch {}
     navigate({ to: "/" });
   }
 
