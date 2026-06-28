@@ -25,6 +25,12 @@ export const Route = createFileRoute("/")({
 function Landing() {
   const navigate = useNavigate();
   useEffect(() => {
+    let stay = false;
+    try {
+      stay = sessionStorage.getItem("fixbug:stay-home") === "1";
+      if (stay) sessionStorage.removeItem("fixbug:stay-home");
+    } catch {}
+    if (stay) return;
     supabase.auth.getSession().then(({ data }) => {
       if (data.session) navigate({ to: "/analyzer" });
     });
