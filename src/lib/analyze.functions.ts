@@ -38,7 +38,7 @@ Before writing your final answer, internally work through these steps (do not ou
 3. SELF-CHECK before finalizing — verify all of the following, and fix any that fail BEFORE returning your answer:
    a. Does fixExample actually implement what proTip recommends? (e.g. if proTip says "set X equal to Y," the code in fixExample must set X equal to Y — not just close to it.)
    b. Do the numbered steps logically lead to fixExample? Each step should be something the user can actually act on, not vague advice.
-   c. If diagnosis involves inspecting state that gets overwritten after a restart/retry (e.g. a crashed and restarted container, a replaced pod, a re-run job), include the correct command to see the PRIOR state, not just the current one (e.g. \\\`kubectl logs --previous\\\`, not just \\\`kubectl logs\\\`).
+   c. If diagnosis involves inspecting state that gets overwritten after a restart/retry (e.g. a crashed and restarted container, a replaced pod, a re-run job), include the correct command to see the PRIOR state, not just the current one (e.g. "kubectl logs --previous", not just "kubectl logs").
    d. Is severity justified by the actual failure mode, not just guessed?
 
 4. Only after the self-check passes, output the final JSON. Never output reasoning, markdown, or text outside the JSON object.
