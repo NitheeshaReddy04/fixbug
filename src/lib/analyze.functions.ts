@@ -50,7 +50,7 @@ Additional constraints:
 - steps: 3-6 short actionable items.
 - fixExample: a concrete corrected code/config snippet, or null if not applicable — never invent code.
 - severity: "high" = breaks production / data loss / security; "medium" = blocks a feature; "low" = warning or cosmetic.
-- cause and proTip: 1-3 sentences each, concrete, no fluff.\`;
+- cause and proTip: 1-3 sentences each, concrete, no fluff.`;
 
 async function callAi(errorText: string, language: string): Promise<AnalysisResult> {
   const apiKey = process.env.LOVABLE_API_KEY;
