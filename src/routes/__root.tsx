@@ -84,6 +84,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:description", content: "Paste any error. Know exactly why it happened, and how to fix it." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
+      { name: "twitter:title", content: "Fixbug — AI error explainer for developers" },
+      { name: "twitter:description", content: "Paste any error. Know exactly why it happened, and how to fix it." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/ea01b785-6952-4272-a561-6839f82435bf/id-preview-07d8214c--acd3e07d-8c18-4a1e-8c5d-9b97d6136a9a.lovable.app-1782675488133.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/ea01b785-6952-4272-a561-6839f82435bf/id-preview-07d8214c--acd3e07d-8c18-4a1e-8c5d-9b97d6136a9a.lovable.app-1782675488133.png" },
     ],
     links: [
       {
