@@ -16,9 +16,9 @@ export function Navbar() {
   }
 
   function goBack() {
-    try { sessionStorage.setItem("fixbug:stay-home", "1"); } catch {}
     navigate({ to: "/" });
   }
+
 
   return (
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur-md">
