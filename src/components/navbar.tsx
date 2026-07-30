@@ -1,4 +1,4 @@
-import { Link, useNavigate, useRouter, useLocation } from "@tanstack/react-router";
+import { Link, useNavigate, useLocation } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
 import { useAuth } from "@/hooks/use-auth";
 import { supabase } from "@/integrations/supabase/client";
@@ -6,8 +6,8 @@ import { supabase } from "@/integrations/supabase/client";
 export function Navbar() {
   const { user } = useAuth();
   const navigate = useNavigate();
-  const router = useRouter();
   const location = useLocation();
+
   const showBack = location.pathname !== "/";
 
   async function signOut() {
