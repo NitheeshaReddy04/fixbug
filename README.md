@@ -47,15 +47,11 @@ Whether you're exploring the project or contributing to it, the codebase is orga
 
 ### Database
 
-* Firebase Firestore / MongoDB *(choose one)*
-
-### Authentication
-
-* Firebase Authentication *(if used)*
+* Firebase Firestore 
 
 ### Deployment
 
-* Vercel / Netlify / Render
+* Vercel 
 
 ### Tools
 
@@ -136,49 +132,6 @@ npm run dev
 
 ---
 
-# 🔐 Environment Variables
-
-Create a `.env` file in the project root.
-
-Example:
-
-```env
-VITE_API_URL=your_api_url
-VITE_FIREBASE_API_KEY=your_api_key
-VITE_FIREBASE_AUTH_DOMAIN=your_auth_domain
-VITE_FIREBASE_PROJECT_ID=your_project_id
-```
-
-> Never commit your `.env` file to GitHub.
-
----
-
-# 📸 Screenshots
-
-Add screenshots of your application here.
-
-Example:
-
-```
-screenshots/
-├── home.png
-├── dashboard.png
-├── login.png
-```
-
----
-
-# 🚀 Future Improvements
-
-* Dark mode
-* Better accessibility
-* Performance optimization
-* More API integrations
-* Unit testing
-* CI/CD pipeline
-* Docker support
-
----
 
 # 🤝 Contributing
 
