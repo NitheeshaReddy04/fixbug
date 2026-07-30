@@ -1,7 +1,6 @@
-import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { useEffect } from "react";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { Navbar } from "@/components/navbar";
-import { supabase } from "@/integrations/supabase/client";
+import { useAuth } from "@/hooks/use-auth";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -23,18 +22,8 @@ export const Route = createFileRoute("/")({
 });
 
 function Landing() {
-  const navigate = useNavigate();
-  useEffect(() => {
-    let stay = false;
-    try {
-      stay = sessionStorage.getItem("fixbug:stay-home") === "1";
-      if (stay) sessionStorage.removeItem("fixbug:stay-home");
-    } catch {}
-    if (stay) return;
-    supabase.auth.getSession().then(({ data }) => {
-      if (data.session) navigate({ to: "/analyzer" });
-    });
-  }, [navigate]);
+  const { user } = useAuth();
+
   return (
     <div className="min-h-screen">
       <Navbar />
