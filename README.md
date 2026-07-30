@@ -20,11 +20,11 @@ Whether you're exploring the project or contributing to it, the codebase is orga
 # ✨ Features
 
 * 🎯 Clean and responsive UI
-* 🔐 Secure authentication *(if applicable)*
+* 🔐 Secure authentication 
 * ⚡ Fast and optimized performance
 * 📱 Mobile-friendly design
 * 🌐 REST API integration
-* 🔄 Real-time data updates *(if applicable)*
+* 🔄 Real-time data updates 
 * 🧩 Modular and reusable components
 * ☁️ Cloud-ready architecture
 
@@ -40,7 +40,7 @@ Whether you're exploring the project or contributing to it, the codebase is orga
 * CSS3
 * JavaScript
 
-### Backend *(Remove if not applicable)*
+### Backend 
 
 * Node.js
 * Express.js
