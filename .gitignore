@@ -45,3 +45,13 @@ serviceAccountKey*.json
 firebase-adminsdk*.json
 secrets.json
 credentials.json
+.env.development
+.env.test
+.env.staging
+*.env
+
+# Build artifacts & caches
+build
+.cache
+coverage
+*.tsbuildinfo
