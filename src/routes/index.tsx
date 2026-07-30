@@ -1,7 +1,6 @@
-import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { useEffect } from "react";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { Navbar } from "@/components/navbar";
-import { supabase } from "@/integrations/supabase/client";
+import { useAuth } from "@/hooks/use-auth";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -23,18 +22,8 @@ export const Route = createFileRoute("/")({
 });
 
 function Landing() {
-  const navigate = useNavigate();
-  useEffect(() => {
-    let stay = false;
-    try {
-      stay = sessionStorage.getItem("fixbug:stay-home") === "1";
-      if (stay) sessionStorage.removeItem("fixbug:stay-home");
-    } catch {}
-    if (stay) return;
-    supabase.auth.getSession().then(({ data }) => {
-      if (data.session) navigate({ to: "/analyzer" });
-    });
-  }, [navigate]);
+  const { user } = useAuth();
+
   return (
     <div className="min-h-screen">
       <Navbar />
@@ -55,23 +44,37 @@ function Landing() {
               to never see it again.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
-              <Link
-                to="/auth"
-                className="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition hover:accent-glow"
-              >
-                Sign in
-              </Link>
-              <Link
-                to="/analyzer"
-                search={{ guest: true }}
-                className="inline-flex items-center gap-2 rounded-xl border border-border bg-secondary px-5 py-2.5 text-sm font-medium text-secondary-foreground transition hover:bg-accent"
-              >
-                Continue as guest →
-              </Link>
+              {user ? (
+                <Link
+                  to="/analyzer"
+                  className="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition hover:accent-glow"
+                >
+                  Go to analyzer →
+                </Link>
+              ) : (
+                <>
+                  <Link
+                    to="/auth"
+                    className="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition hover:accent-glow"
+                  >
+                    Sign in
+                  </Link>
+                  <Link
+                    to="/analyzer"
+                    search={{ guest: true }}
+                    className="inline-flex items-center gap-2 rounded-xl border border-border bg-secondary px-5 py-2.5 text-sm font-medium text-secondary-foreground transition hover:bg-accent"
+                  >
+                    Continue as guest →
+                  </Link>
+                </>
+              )}
             </div>
             <p className="mt-3 text-xs text-muted-foreground">
-              Guest mode skips auth. Sign in to save your history.
+              {user
+                ? "You're signed in — your analyses are saved to your history."
+                : "Guest mode skips auth. Sign in to save your history."}
             </p>
+
           </div>
 
           <MockResultPreview />

@@ -1,4 +1,4 @@
-import { Link, useNavigate, useRouter, useLocation } from "@tanstack/react-router";
+import { Link, useNavigate, useLocation } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
 import { useAuth } from "@/hooks/use-auth";
 import { supabase } from "@/integrations/supabase/client";
@@ -6,8 +6,8 @@ import { supabase } from "@/integrations/supabase/client";
 export function Navbar() {
   const { user } = useAuth();
   const navigate = useNavigate();
-  const router = useRouter();
   const location = useLocation();
+
   const showBack = location.pathname !== "/";
 
   async function signOut() {
@@ -16,9 +16,9 @@ export function Navbar() {
   }
 
   function goBack() {
-    try { sessionStorage.setItem("fixbug:stay-home", "1"); } catch {}
     navigate({ to: "/" });
   }
+
 
   return (
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur-md">
